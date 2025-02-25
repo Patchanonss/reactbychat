@@ -1,0 +1,13 @@
+/* Button.module.css */
+.Component1 {
+  background-color: rgb(79, 106, 197);
+  color: white;
+  padding: 10px 15px;
+  border: solid;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.Component1:hover {
+  background-color: rgb(79, 106, 255);
+}

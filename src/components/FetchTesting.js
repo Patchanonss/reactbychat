@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { tempFetch } from "../api";
 
-function TestingFetch() {
+function FetchTesting() {
   const [users, setUsers] = useState(null);
   const [error, setError] = useState(null);
 
@@ -28,4 +28,4 @@ function TestingFetch() {
   );
 }
 
-export default TestingFetch;
+export default FetchTesting;

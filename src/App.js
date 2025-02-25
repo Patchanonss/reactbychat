@@ -1,16 +1,19 @@
+import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Component1 from "./components/Component1.js";
-import Greeting from "./components/Greeting.js";
-import TestingFetch from "./components/testingFetch.js";
+import Temp from "./pages/Temp.js";
+import Home from "./pages/Home.js";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <Greeting></Greeting>
-        <Component1></Component1>
-        <TestingFetch></TestingFetch>
+        {/* Page Routes */}
+        <Routes>
+          <Route path="/" element={<Navigate to="/Home" replace />} />
+
+          <Route path="/Home" element={<Home />} />
+          <Route path="/Temp" element={<Temp />} />
+        </Routes>
       </header>
     </div>
   );
