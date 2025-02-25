@@ -7,7 +7,8 @@ const Home = () => {
     <div>
       <Component1 />
       <nav>
-        <Link to="/Temp">Temp</Link>
+        <Link to="/Signup"> SignUp | </Link>
+        <Link to="/Login">Login</Link>
       </nav>
       <h1>This is a Home Page</h1>
       {/* <Link to="/getposts">

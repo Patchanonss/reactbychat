@@ -1,16 +1,15 @@
 import { useEffect } from "react";
-import "./LoginPage.css";
 import { useNavigate } from "react-router-dom";
-import useAuthForm from "../hooks/useAuthForm";
+import useAuthForm from "../hooks/useAuthForm"; // Import hook
+import "./SignupPage.css";
 
-const LoginPage = () => {
+const SignupPage = () => {
   const navigate = useNavigate();
   const { formData, handleChange, handleSubmit, errors, loading, message } =
-    useAuthForm("login");
+    useAuthForm("signup", true);
+
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      // If token exists, redirect to /temp
+    if (localStorage.getItem("token")) {
       navigate("/temp");
     }
   }, [navigate]);
@@ -18,8 +17,18 @@ const LoginPage = () => {
   return (
     <div className="container">
       <div className="signup-box">
-        <h2>Login</h2>
+        <h2>Signup</h2>
         <form onSubmit={handleSubmit}>
+          <div className="input-group">
+            <label>Name</label>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+            />
+            {errors.name && <p className="error-text">{errors.name}</p>}
+          </div>
           <div className="input-group">
             <label>Email</label>
             <input
@@ -43,7 +52,7 @@ const LoginPage = () => {
           {errors.general && <p className="error-text">{errors.general}</p>}
           {message && <p className="success-text">{message}</p>}
           <button type="submit" className="signup-button" disabled={loading}>
-            {loading ? "Logging up..." : "Login"}
+            {loading ? "Signing up..." : "Signup"}
           </button>
         </form>
       </div>
@@ -51,4 +60,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default SignupPage;
